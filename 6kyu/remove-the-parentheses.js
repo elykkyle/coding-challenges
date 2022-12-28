@@ -14,7 +14,7 @@ Other than parentheses only letters and spaces can occur in the string. Don't wo
 There can be multiple parentheses.
 The parentheses can be nested.
 */
-
+/*
 function removeParentheses(s) {
   let stringArr = [...s];
   if (!stringArr.includes('(')) {
@@ -25,6 +25,18 @@ function removeParentheses(s) {
   stringArr.splice(start, end - start + 1);
   let newString = stringArr.join('');
   return removeParentheses(newString);
+} */
+
+//using counter and iterating through characters in string:
+function removeParentheses(s) {
+  let result = '';
+  let inPar = 0;
+  for (let c of s) {
+    if (c === '(') inPar += 1;
+    if (!inPar) result += c;
+    if (c === ')') inPar -= 1;
+  }
+  return result;
 }
 
 console.log(removeParentheses('example(unwanted thing)example')); // "exampleexample"
