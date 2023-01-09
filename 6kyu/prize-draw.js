@@ -71,7 +71,7 @@ function rank(st, we, n) {
   return ca[n - 1][0];
 }
 
-/* console.log(
+console.log(
   rank(
     'Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin',
     [4, 2, 1, 4, 3, 1, 2],
@@ -86,7 +86,7 @@ console.log(
     8
   )
 ); // "Not enough participants"
-console.log(rank('', [4, 2, 1, 4, 3, 1, 2], 6)); // "No participants" */
+console.log(rank('', [4, 2, 1, 4, 3, 1, 2], 6)); // "No participants"
 console.log(
   rank(
     'Mia,Aubrey,Mason,Samantha,Elizabeth,Abigail,William,Elijah,Lyli,David,Logan,Olivia,Joshua,Benjamin,Lily,Isabella,Sophia,Avery,Andrew,Ethan,Grace,Willaim,Emily',
