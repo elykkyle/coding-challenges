@@ -46,16 +46,7 @@ Should return: 2
 // }
 
 function doors(n) {
-  const doorsArr = Array(n).fill(false, 0, n);
-  const totalStudents = n;
-  let curStudent = 1;
-  while (curStudent <= totalStudents) {
-    for (let i = curStudent; i <= totalStudents; i + i) {
-      doorsArr[i - 1] = !doorsArr[i - 1];
-    }
-    curStudent++;
-  }
-  return doorsArr.filter((door) => door === true).length;
+  return Math.floor(Math.sqrt(n));
 }
 
 console.log(doors(5)); // 2
