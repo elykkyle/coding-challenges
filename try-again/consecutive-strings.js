@@ -106,11 +106,19 @@ console.log(longestConsec(['it', 'wkppv', 'ixoyx', '3452', 'zzzzzzzzzzzz'], 0));
 // Solutions from codewars:
 
 function longestConsec1(strarr, k) {
-  var longest = '';
-  for (var i = 0; k > 0 && i <= strarr.length - k; i++) {
-    var tempArray = strarr.slice(i, i + k);
-    var tempStr = tempArray.join('');
+  // initialize longest variable to track the longest consecutive string
+  let longest = '';
+  // begin looping through strarr. using k and strarr.length for loop limit.
+  // k has to be greater than 0. i has to be less than the strarr.length - k
+  // (this prevents accessing non-existent array positions)
+  for (let i = 0; k > 0 && i <= strarr.length - k; i++) {
+    // create a new array from strarr with only k number of strings
+    const tempArray = strarr.slice(i, i + k);
+    // join strings in new array
+    const tempStr = tempArray.join('');
+    // compare joined string to string length of longest variable.
     if (tempStr.length > longest.length) {
+      // if joined string is longer than longest, assign joined string to longest
       longest = tempStr;
     }
   }
@@ -118,12 +126,15 @@ function longestConsec1(strarr, k) {
 }
 
 function longestConsec2(strarr, k) {
+  // return if k <=0 or if k is greater than the array length (per requirements)
   if (k <= 0 || k > strarr.length) {
     return '';
   }
-
+  // use reduce fuction, inputting 'long[est]' string as accumulator, item (unused), and index
   return strarr.reduce((long, item, i) => {
+    //create current string using slice and join. slice starts at current index, and ends at index + k
     const currString = strarr.slice(i, i + k).join('');
+    // compare the current string length to the long length. returns longest of the two.
     return currString.length > long.length ? currString : long;
   }, '');
 }
