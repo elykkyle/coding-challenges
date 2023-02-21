@@ -33,7 +33,7 @@ function jumble(string) {
       jumbledWord = first;
       const randSet = new Set();
       while (randSet.size < el.length - last.length - 1) {
-        randSet.add(randCharPicker(el.length - last.length));
+        randSet.add(randIndex(el.length - last.length));
       }
       for (num of randSet) {
         jumbledWord += el[num];
@@ -45,7 +45,7 @@ function jumble(string) {
   return jumbled.join(' ');
 }
 
-function randCharPicker(max) {
+function randIndex(max) {
   return Math.floor(Math.random() * (max - 1) + 1);
 }
 
